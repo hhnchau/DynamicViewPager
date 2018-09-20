@@ -1,6 +1,7 @@
 package phuthotech.vn.dynamicviewpager;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -17,7 +18,7 @@ public class FragmentParent extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_parent, container, false);
         getIDs(view);
         setEvents();
@@ -25,8 +26,8 @@ public class FragmentParent extends Fragment {
     }
 
     private void getIDs(View view) {
-        viewPager = (ViewPager) view.findViewById(R.id.my_viewpager);
-        tabLayout = (TabLayout) view.findViewById(R.id.my_tab_layout);
+        viewPager =  view.findViewById(R.id.my_viewpager);
+        tabLayout =  view.findViewById(R.id.my_tab_layout);
         adapter = new ViewPagerAdapter(getFragmentManager(), getActivity(), viewPager, tabLayout);
         viewPager.setAdapter(adapter);
     }
@@ -35,7 +36,7 @@ public class FragmentParent extends Fragment {
 
     private void setEvents() {
 
-        tabLayout.setOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager) {
+        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager) {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 super.onTabSelected(tab);

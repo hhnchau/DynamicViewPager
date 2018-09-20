@@ -2,6 +2,7 @@ package phuthotech.vn.dynamicviewpager;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -17,7 +18,7 @@ public class FragmentChild extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_child, container, false);
         Bundle bundle = getArguments();
@@ -28,9 +29,9 @@ public class FragmentChild extends Fragment {
     }
 
     private void getIDs(View view) {
-        textViewChildName = (TextView) view.findViewById(R.id.textViewChild);
+        textViewChildName =  view.findViewById(R.id.textViewChild);
         textViewChildName.setText(childname);
-        editText = (EditText) view.findViewById(R.id.editText);
+        editText =  view.findViewById(R.id.editText);
         editText.setText("");
     }
 

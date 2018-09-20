@@ -1,6 +1,7 @@
 package phuthotech.vn.dynamicviewpager;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -21,9 +22,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     private final ArrayList<Fragment> mFragmentList = new ArrayList<>();
     private final ArrayList<String> mFragmentTitleList = new ArrayList<>();
-    Context context;
-    ViewPager viewPager;
-    TabLayout tabLayout;
+    private Context context;
+    private ViewPager viewPager;
+    private TabLayout tabLayout;
 
     public ViewPagerAdapter(FragmentManager manager, Context context, ViewPager viewPager,
                             TabLayout tabLayout) {
@@ -59,10 +60,9 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
     public View getTabView(final int position) {
         View view = LayoutInflater.from(context).inflate(R.layout.custom_tab_item, null);
-        TextView tabItemName = (TextView) view.findViewById(R.id.textViewTabItemName);
-        CircleImageView tabItemAvatar =
-                (CircleImageView) view.findViewById(R.id.imageViewTabItemAvatar);
-        ImageButton remove = (ImageButton) view.findViewById(R.id.imageButtonRemove);
+        TextView tabItemName =  view.findViewById(R.id.textViewTabItemName);
+        CircleImageView tabItemAvatar = view.findViewById(R.id.imageViewTabItemAvatar);
+        ImageButton remove =  view.findViewById(R.id.imageButtonRemove);
         remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,7 +115,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     }
 
     @Override
-    public int getItemPosition(Object object) {
+    public int getItemPosition(@NonNull Object object) {
         return POSITION_NONE;
     }
 

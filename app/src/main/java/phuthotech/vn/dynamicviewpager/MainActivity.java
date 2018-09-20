@@ -24,9 +24,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getIDs() {
-        buttonAddPage = (Button) findViewById(R.id.buttonAddPage);
+        buttonAddPage =  findViewById(R.id.buttonAddPage);
         fragmentParent = (FragmentParent) this.getSupportFragmentManager().findFragmentById(R.id.fragmentParent);
-        textView = (TextView) findViewById(R.id.editTextPageName);
+        textView =  findViewById(R.id.editTextPageName);
     }
 
     private void setEvents() {
